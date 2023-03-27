@@ -1,6 +1,8 @@
 import numpy as np, cv2
-from 교재소스.Common.filters import filter
+from SrcCode.Common.filters import filter
 
+
+# 프리윗 마스크 : 로버츠에 비하여 에지의 강도가 강하고, 수직 수평 에지를 독립적으로 검출 가능
 def differential(image, data1, data2):
     mask1 = np.array(data1, np.float32).reshape(3, 3)
     mask2 = np.array(data2, np.float32).reshape(3, 3)

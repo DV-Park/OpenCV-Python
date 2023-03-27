@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.histogram import draw_histo
+from SrcCode.Common.histogram import draw_histo
 
 def search_value_idx(hist, bias = 0):
     for i in range(hist.shape[0]):

@@ -1,16 +1,16 @@
 import numpy as np, cv2
 from SrcCode.Common.filters import filter
 
-image = cv2.imread("images/filter_sharpen.jpg", cv2.IMREAD_GRAYSCALE) # 영상 읽기
+image = cv2.imread("../Src/CarNum.jpg", cv2.IMREAD_GRAYSCALE) # 영상 읽기
 if image is None: raise Exception("영상파일 읽기 오류")
 
 # 샤프닝 마스크 원소 지정
 data1 = [0, -1, 0,                          #마스크 총합은 1
         -1, 5, -1,
          0, -1, 0]
-data2 = [[-1, -1, -1],                      #마스크 총합은 1
-         [-1, 9, -1],
-         [-1, -1, -1]]
+data2 = [[1, -2, 1],                      #마스크 총합은 1
+         [-2, 5, -2],
+         [1, -2, 1]]
 mask1 = np.array(data1, np.float32).reshape(3, 3)
 mask2 = np.array(data2, np.float32)
 

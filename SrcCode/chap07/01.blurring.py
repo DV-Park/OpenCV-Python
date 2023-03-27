@@ -36,9 +36,10 @@ image = cv2.imread("images/filter_blur.jpg", cv2.IMREAD_GRAYSCALE)  # 영상 읽
 if image is None: raise Exception("영상파일 읽기 오류")
 
 # 블러링 마스크 원소 지정     
-data = [1/9, 1/9, 1/9,
+data = [1/9, 1/9, 1/9,                  #마스크 총합은 1
         1/9, 1/9, 1/9,
         1/9, 1/9, 1/9]
+# data = [1/9 for i in range(9)]    # 배열 초기화 편하게
 mask = np.array(data, np.float32).reshape(3, 3)
 blur1 = filter(image, mask)                                    # 회선 수행 - 화소 직접 접근
 blur2 = filter2(image, mask)                                   # 회선 수행

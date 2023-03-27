@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.histogram import draw_histo
+from SrcCode.Common.histogram import draw_histo
 
 image = cv2.imread("images/equalize.jpg", cv2.IMREAD_GRAYSCALE) # 영상 읽기
 if image is None: raise Exception("영상 파일 읽기 오류")

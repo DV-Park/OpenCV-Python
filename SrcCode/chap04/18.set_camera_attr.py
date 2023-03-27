@@ -1,5 +1,5 @@
 import cv2
-from Common.utils import put_string
+from SrcCode.Common.utils import put_string
 
 def zoom_bar(value):
     global capture

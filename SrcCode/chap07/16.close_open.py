@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.filters import erode, dilate
+from SrcCode.Common.filters import erode, dilate
 
 def opening(img, mask):                     # 열림 연산
     tmp = erode(img, mask)                  # 침식

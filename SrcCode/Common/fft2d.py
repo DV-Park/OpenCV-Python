@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.dft2d import exp
+from SrcCode.Common.dft2d import exp
 
 def zeropadding(img):
     h, w = img.shape[:2]

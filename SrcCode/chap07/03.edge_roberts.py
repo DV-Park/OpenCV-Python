@@ -1,6 +1,7 @@
 import numpy as np, cv2
-from 교재소스.Common.filters import filter
+from SrcCode.Common.filters import filter
 
+#로버츠 마스크 : 처리 속도가 빠르지만 잡음에 민감
 def differential(image, data1, data2):
     mask1 = np.array(data1, np.float32).reshape(3, 3)
     mask2 = np.array(data2, np.float32).reshape(3, 3)
@@ -18,7 +19,7 @@ def differential(image, data1, data2):
 image = cv2.imread("images/edge.jpg", cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상파일 읽기 오류")
     
-data1 = [-1, 0, 0,
+data1 = [-1, 0, 0,                          # 로버츠 마스크
           0, 1, 0,
           0, 0, 0]
 data2 = [ 0, 0, -1,

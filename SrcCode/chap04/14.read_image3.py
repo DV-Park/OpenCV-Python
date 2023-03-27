@@ -1,5 +1,5 @@
 import cv2
-from Common.utils import print_matInfo
+from SrcCode.Common.utils import print_matInfo
 
 title1, title2 = "16bit unchanged", "32bit unchanged"  # 윈도우 이름
 color2unchanged1 = cv2.imread("images/read_16.tif", cv2.IMREAD_UNCHANGED)
