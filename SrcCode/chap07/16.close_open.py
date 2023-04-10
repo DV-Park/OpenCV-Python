@@ -1,6 +1,8 @@
 import numpy as np, cv2
 from SrcCode.Common.filters import erode, dilate
 
+#열림, 닫힘연산은 멱등법칙이 성립
+
 def opening(img, mask):                     # 열림 연산
     tmp = erode(img, mask)                  # 침식
     dst = dilate(tmp, mask)                 # 팽창

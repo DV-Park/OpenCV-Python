@@ -13,7 +13,7 @@ while True:
     mask = np.ones((5, 17), np.uint8)                      # 닫힘 연산 마스크
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)          # 명암도 영상 변환
     gray = cv2.blur(gray, (5, 5))                           # 블러링
-    gray = cv2.Sobel(gray, cv2.CV_8U, 1, 0, 5)              # 소벨 에지 검출
+    gray = cv2.Sobel(gray, cv2.CV_8U, 1, 0, 5)              # 소벨 에지 검출 / 수직 에지 검출
 
     # 이진화 및 닫힘 연산 수행
     _, th_img = cv2.threshold(gray, 120, 255, cv2.THRESH_BINARY)

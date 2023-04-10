@@ -29,3 +29,6 @@ dst2 = cv2.morphologyEx(th_img, cv2.MORPH_DILATE, mask)  # OpenCV의 팽창 함�
 cv2.imshow("User dilate", dst1)
 cv2.imshow("OpenCV dilate", dst2)
 cv2.waitKey(0)
+
+
+#cv2.getStructuringElement(cv2.MORPH_CROSS,(9,9)) #RECT, CROSS, ELIPSE - 커널과 같은 역할을 하는 구조요소 생성
