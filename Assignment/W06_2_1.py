@@ -17,13 +17,20 @@ data=[0,1,0,1,1,1,0,1,0]
 mask=np.array(data,np.uint8).reshape(3,3)
 th_img=cv2.threshold(image,128,255,cv2.THRESH_BINARY)[1]
 
-open_img=cv2.morphologyEx(th_img, cv2.MORPH_OPEN, mask)
-result_img=cv2.morphologyEx(open_img, cv2.MORPH_CLOSE, mask)
+
+er_img=cv2.erode(th_img,mask)
+er_img=cv2.erode(er_img,mask)
+result_img=cv2.dilate(er_img,mask)
+result_img=cv2.dilate(result_img,mask)
+result_img=cv2.dilate(result_img,mask)
+result_img=cv2.dilate(result_img,mask)
 
 th_img2=cv2.threshold(image2,128,255,cv2.THRESH_BINARY)[1]
 
-open_img2=cv2.morphologyEx(th_img2, cv2.MORPH_OPEN, mask)
-result_img2=cv2.morphologyEx(open_img2, cv2.MORPH_CLOSE, mask)
+er_img2=cv2.erode(th_img2,mask)
+er_img2=cv2.erode(er_img2,mask)
+result_img2=cv2.dilate(er_img2,mask)
+result_img2=cv2.dilate(result_img2,mask)
 
 th_img3=cv2.threshold(image3,128,255,cv2.THRESH_BINARY)[1]
 
