@@ -15,3 +15,5 @@ print("영상의 화소 개수 =", dimensions)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# 중간 시험범위 인터페이스 ~ 동영상
