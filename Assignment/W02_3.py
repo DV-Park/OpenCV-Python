@@ -7,7 +7,7 @@ def onMouse(event, x, y, flags, param):
         cv2.rectangle(image, pt3, pt4, blue, 3, cv2.LINE_4)
         cv2.imshow(title1, image)
 
-image = cv2.imread("C:/Park/Src/dog.jpg")
+image = cv2.imread("../Src/dog.jpg")
 if image is None: raise Exception("영상 파일 읽기 오류")
 
 x, y = image.shape[1]//2, image.shape[0]//2

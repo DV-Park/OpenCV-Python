@@ -10,14 +10,14 @@ def onChange(value):
     th, dst = cv2.threshold(image, 130, 160, cv2.THRESH_BINARY)
     cv2.imshow(title, dst)
 
-image=cv2.imread("C:/Park/Src/dog.jpg", cv2.IMREAD_GRAYSCALE)
+image=cv2.imread("../Src/dog.jpg", cv2.IMREAD_GRAYSCALE)
 title="Thresh"
 th, dst=cv2.threshold(image,130,160,cv2.THRESH_BINARY)
 th, dst_O=cv2.threshold(image,-1,255,cv2.THRESH_OTSU)
 th, dst_T=cv2.threshold(image,-1,255,cv2.THRESH_TRIANGLE)
 print(th)
 
-cv2.createTrackbar("Threshold",title,image[0][0],255,onChange)
 cv2.imshow(title, dst)
+cv2.createTrackbar("Threshold",title,image[0][0],255,onChange)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
