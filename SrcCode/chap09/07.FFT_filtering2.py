@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.fft2d import FFT, IFFT, calc_spectrum
+from SrcCode.Common.fft2d import FFT, IFFT, calc_spectrum
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D             # 3차원 그래프 라이브러리
 

@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.fft2d import fft2, ifft2, calc_spectrum, fftshift
+from SrcCode.Common.fft2d import fft2, ifft2, calc_spectrum, fftshift
 
 def FFT(image, mode = 2):
     if mode == 1: dft = fft2(image)

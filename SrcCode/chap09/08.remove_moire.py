@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.fft2d import FFT, IFFT, calc_spectrum
+from SrcCode.Common.fft2d import FFT, IFFT, calc_spectrum
 
 def onRemoveMoire(val):
     radius = cv2.getTrackbarPos("radius", title)

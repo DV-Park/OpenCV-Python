@@ -44,35 +44,34 @@ def ifft2(image):
     dst = [ifft(row) for row in np.transpose(tmp)]
     return np.transpose(dst)                        # 전치 환원 후 반환
 
-sg = [0, 1,2,3,4,5,6,7,8]
+#sg = [0, 1,2,3,4,5,6,7,8]
 
-fft(sg)
+#fft(sg)
 
-# image = cv2.imread('images/dft_240.jpg', cv2.IMREAD_GRAYSCALE)
-# if image is None: raise Exception("영상파일 읽기 에러")
-#
-# dft1 = fft2(image)                                # 2차원 DFT 수행
-# dft2 = np.fft.fft2(image)                                # 2차원 DFT 수행
-# dft3 = cv2.dft(np.float32(image), flags = cv2.DFT_COMPLEX_OUTPUT)
-#
-# spectrum1 = calc_spectrum(fftshift(dft1))           # 셔플링후 주파수 스펙트럼 영상 생성
-# spectrum2 = calc_spectrum(fftshift(dft2))           # 주파수 스펙트럼 영상
-# spectrum3 = calc_spectrum(fftshift(dft3))           # 주파수 스펙트럼 영상
-#
-# idft1 = ifft2(dft1).real                          # 2차원 IDFT 수행
-# idft2 = np.fft.ifft2(dft2).real                          # 2차원 IDFT 수행
-# idft3 = cv2.idft(dft3, flags=cv2.DFT_SCALE)[:,:,0]
-#
-# print("user 방법 변환 행렬 크기:", dft1.shape)
-# print("np.fft 방법 변환 행렬 크기:", dft2.shape)
-# print("cv2.dft 방법 변환 행렬 크기:", dft3.shape)
-#
-# cv2.imshow("image", image)
-# cv2.imshow("spectrum1", spectrum1)
-# cv2.imshow("spectrum2-np.fft", spectrum2)
-# cv2.imshow("spectrum3-OpenCV", spectrum3)
-# cv2.imshow("idft_img1", cv2.convertScaleAbs(idft1))
-# cv2.imshow("idft_img2", cv2.convertScaleAbs(idft2))
-# cv2.imshow("idft_img3", cv2.convertScaleAbs(idft3))
-# cv2.waitKey(0)
+image = cv2.imread('../Src/dft_240.jpg', cv2.IMREAD_GRAYSCALE)
+if image is None: raise Exception("영상파일 읽기 에러")
 
+dft1 = fft2(image)                                # 2차원 DFT 수행
+dft2 = np.fft.fft2(image)                                # 2차원 DFT 수행
+dft3 = cv2.dft(np.float32(image), flags = cv2.DFT_COMPLEX_OUTPUT)
+
+spectrum1 = calc_spectrum(fftshift(dft1))           # 셔플링후 주파수 스펙트럼 영상 생성
+spectrum2 = calc_spectrum(fftshift(dft2))           # 주파수 스펙트럼 영상
+spectrum3 = calc_spectrum(fftshift(dft3))           # 주파수 스펙트럼 영상
+
+idft1 = ifft2(dft1).real                          # 2차원 IDFT 수행
+idft2 = np.fft.ifft2(dft2).real                          # 2차원 IDFT 수행
+idft3 = cv2.idft(dft3, flags=cv2.DFT_SCALE)[:,:,0]
+
+print("user 방법 변환 행렬 크기:", dft1.shape)
+print("np.fft 방법 변환 행렬 크기:", dft2.shape)
+print("cv2.dft 방법 변환 행렬 크기:", dft3.shape)
+
+cv2.imshow("image", image)
+cv2.imshow("spectrum1", spectrum1)
+cv2.imshow("spectrum2-np.fft", spectrum2)
+cv2.imshow("spectrum3-OpenCV", spectrum3)
+cv2.imshow("idft_img1", cv2.convertScaleAbs(idft1))
+cv2.imshow("idft_img2", cv2.convertScaleAbs(idft2))
+cv2.imshow("idft_img3", cv2.convertScaleAbs(idft3))
+cv2.waitKey(0)

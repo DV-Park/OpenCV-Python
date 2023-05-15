@@ -1,5 +1,5 @@
 import numpy as np, cv2
-from Common.dct2d import *
+from SrcCode.Common.dct2d import *
 
 def dct2_mode(block, mode):
     if mode==1: return dct2(block)
