@@ -1,6 +1,5 @@
 import numpy as np
 import cv2
-from skimage import data, filters
 
 cap = cv2.VideoCapture("../Src/cctv_88jc.mp4")
 
