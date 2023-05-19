@@ -1,4 +1,5 @@
-import numpy as np, cv2, math
+import numpy as np, time
+import cv2
 from SrcCode.Common.dft2d import exp, calc_spectrum, fftshift
 from SrcCode.Common.fft2d import zeropadding
 
@@ -9,9 +10,6 @@ def butterfly(pair, L, N, dir):
         pair[k + L] = Geven - Godd * exp(dir * k / N)       # 홀수부
 
 def pairing(g, N, dir, start=0, stride=1):
-
-    print(start, ',' ,stride )
-
     if N == 1: return [g[start]]
     L = N // 2
     sd = stride * 2
@@ -44,16 +42,22 @@ def ifft2(image):
     dst = [ifft(row) for row in np.transpose(tmp)]
     return np.transpose(dst)                        # 전치 환원 후 반환
 
-#sg = [0, 1,2,3,4,5,6,7,8]
-
-#fft(sg)
+def ck_time(mode = 0):
+    global stime
+    if (mode ==0 ):
+       stime = time.perf_counter()
+    elif (mode==1):
+       etime = time.perf_counter()
+       print("수행시간 = %.5f sec" % (etime - stime))   #초 단위 경과 시간
 
 image = cv2.imread('../Src/dft_240.jpg', cv2.IMREAD_GRAYSCALE)
-if image is None: raise Exception("영상파일 읽기 에러")
+if image is None:
+    raise Exception("영상파일 읽기 에러")
 
+ck_time(0)
 dft1 = fft2(image)                                # 2차원 DFT 수행
 dft2 = np.fft.fft2(image)                                # 2차원 DFT 수행
-dft3 = cv2.dft(np.float32(image), flags = cv2.DFT_COMPLEX_OUTPUT)
+dft3 = cv2.dft(np.float32(image), flags=cv2.DFT_COMPLEX_OUTPUT)
 
 spectrum1 = calc_spectrum(fftshift(dft1))           # 셔플링후 주파수 스펙트럼 영상 생성
 spectrum2 = calc_spectrum(fftshift(dft2))           # 주파수 스펙트럼 영상
@@ -61,8 +65,9 @@ spectrum3 = calc_spectrum(fftshift(dft3))           # 주파수 스펙트럼 영
 
 idft1 = ifft2(dft1).real                          # 2차원 IDFT 수행
 idft2 = np.fft.ifft2(dft2).real                          # 2차원 IDFT 수행
-idft3 = cv2.idft(dft3, flags=cv2.DFT_SCALE)[:,:,0]
+idft3 = cv2.idft(dft3, flags=cv2.DFT_SCALE)[:, :, 0]
 
+ck_time(1)
 print("user 방법 변환 행렬 크기:", dft1.shape)
 print("np.fft 방법 변환 행렬 크기:", dft2.shape)
 print("cv2.dft 방법 변환 행렬 크기:", dft3.shape)

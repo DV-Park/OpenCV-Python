@@ -19,7 +19,7 @@ def ck_time(mode = 0):
        etime = time.perf_counter()
        print("수행시간 = %.5f sec" % (etime - stime))   #초 단위 경과 시간
 
-image = cv2.imread('../Src/dft_64.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('../Src/dft_240.jpg', cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상파일 읽기 에러")
 
 ck_time(0)
