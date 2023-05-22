@@ -16,6 +16,14 @@ dst=np.float32(dst)
 ret=cv2.phaseCorrelate(src,dst)
 print(ret)
 
+#추가한것
+fft_src=np.fft.fft(src)
+fft_dst=np.fft.fft(dst)
+fft_dst_conj=np.conj(fft_dst)
+
+R=(fft_src*fft_dst_conj)/abs(fft_src*fft_dst_conj)
+r=np.fft.ifft(R)
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 time_shift=np.argmax(r)

@@ -1,7 +1,7 @@
 import numpy as np, cv2, math
 import scipy.fftpack as sf
 
-block=np.zeros((0,8),np.uint8)
+block=np.zeros((8,8),np.uint8)
 cv2.randn(block,128,50)
 
 dct=cv2.dct(block.astype("float32"))
